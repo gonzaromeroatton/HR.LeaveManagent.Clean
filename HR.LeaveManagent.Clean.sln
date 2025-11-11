@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{0CFEF7F4-143
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F8CE8A6F-6FCC-408A-B851-8C02FA106B3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.LeaveManagent.Domain", "HR.LeaveManagent.Domain\HR.LeaveManagent.Domain.csproj", "{01B51C62-76AD-4CFE-9ED6-DFA39F7B8FFD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.LeaveManagement.Domain", "HR.LeaveManagent.Domain\HR.LeaveManagement.Domain.csproj", "{01B51C62-76AD-4CFE-9ED6-DFA39F7B8FFD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.LeaveManagement.Application", "HR.LeaveManagement.Application\HR.LeaveManagement.Application.csproj", "{B9A7932B-5091-47FF-BDEE-FC0935D5E425}"
 EndProject
