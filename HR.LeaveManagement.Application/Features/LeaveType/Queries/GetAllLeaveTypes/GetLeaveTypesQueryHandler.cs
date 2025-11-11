@@ -18,7 +18,7 @@ public class GetLeaveTypesQueryHandler : IRequestHandler<GetLeaveTypesQuery, Lis
     public async Task<List<LeaveTypeDto>> Handle(GetLeaveTypesQuery request, CancellationToken cancellationToken = default)
     {
         // Query the database
-        var leaveTypes =  _leaveTypeRepository.GetAllAsync();
+        var leaveTypes =  await _leaveTypeRepository.GetAllAsync();
 
         // Convert data objects to DTO
         var data = _mapper.Map<List<LeaveTypeDto>>(leaveTypes);
@@ -27,3 +27,4 @@ public class GetLeaveTypesQueryHandler : IRequestHandler<GetLeaveTypesQuery, Lis
         return data;
     }
 }
+ 
