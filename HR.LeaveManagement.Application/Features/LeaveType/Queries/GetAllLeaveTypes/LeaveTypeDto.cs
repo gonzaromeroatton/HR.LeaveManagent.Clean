@@ -1,4 +1,4 @@
-﻿using HR.LeaveManagent.Domain.Common;
+﻿using HR.LeaveManagement.Domain.Common;
 
 namespace HR.LeaveManagement.Application.Features.LeaveType.Queries.GetAllLeaveTypes;
 

@@ -1,4 +1,4 @@
-﻿namespace HR.LeaveManagent.Domain.Common;
+﻿namespace HR.LeaveManagement.Domain.Common;
 
 public abstract class BaseEntity
 {
