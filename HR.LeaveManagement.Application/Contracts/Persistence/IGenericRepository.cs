@@ -13,7 +13,7 @@ public interface IGenericRepository<T> where T : class
 
 public interface ILeaveTypeRepository : IGenericRepository<LeaveType>
 {
-
+    Task<bool> IsLeaveTypeUnique(string name);
 }
 
 public interface ILeaveTAllocationRepository : IGenericRepository<LeaveAllocation>
