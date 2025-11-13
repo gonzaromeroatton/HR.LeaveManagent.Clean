@@ -18,7 +18,9 @@ public class HrDatabaseContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(HrDatabaseContext).Assembly);
+        // It is not necessary, in fact is an error, to add config from all the assembly and then for individuals configurations: 
+        //mMust be one or the another. In this case we will use single config, cause later on we will use other additional configs.
+        //modelBuilder.ApplyConfigurationsFromAssembly(typeof(HrDatabaseContext).Assembly);
         modelBuilder.ApplyConfiguration(new LeaveTypeConfiguration());
 
         base.OnModelCreating(modelBuilder);

@@ -12,7 +12,7 @@ public class UpdateLeaveTypeCommandHandler : IRequestHandler<UpdateLeaveTypeComm
     private readonly ILeaveTypeRepository _leaveTypeRepository;
     private IAppLogger<UpdateLeaveTypeCommandHandler> _logger;
 
-    public UpdateLeaveTypeCommandHandler(IMapper mapper, ILeaveTypeRepository leaveTypeRepository IAppLogger<UpdateLeaveTypeCommandHandler> logger)
+    public UpdateLeaveTypeCommandHandler(IMapper mapper, ILeaveTypeRepository leaveTypeRepository, IAppLogger<UpdateLeaveTypeCommandHandler> logger)
     {
         this._mapper = mapper;
         this._leaveTypeRepository = leaveTypeRepository;
