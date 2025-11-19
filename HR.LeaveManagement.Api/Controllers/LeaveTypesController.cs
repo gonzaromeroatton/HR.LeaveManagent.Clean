@@ -1,6 +1,12 @@
-﻿using HR.LeaveManagement.Application.Features.LeaveType.Queries.GetAllLeaveTypes;
+﻿using HR.LeaveManagement.Application.Features.LeaveType.Commands.CreateLeaveType;
+using HR.LeaveManagement.Application.Features.LeaveType.Commands.DeleteLeaveType;
+using HR.LeaveManagement.Application.Features.LeaveType.Commands.UpdateLeaveType;
+using HR.LeaveManagement.Application.Features.LeaveType.Queries.GetAllLeaveTypes;
+using HR.LeaveManagement.Application.Features.LeaveType.Queries.GetLeaveTypeDetails;
+using HR.LeaveManagement.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -28,27 +34,48 @@ namespace HR.LeaveManagement.Api.Controllers
 
         // GET api/<LeaveTypesController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<ActionResult<LeaveTypeDetailsDto>> Get(int id)
         {
-            return "value";
+            var leaveType = await _mediator.Send(new GetLeaveTypeDetailsQuery(id));
+
+            return Ok(leaveType);
         }
 
         // POST api/<LeaveTypesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
+        public async Task<ActionResult> Post(CreateLeaveTypeCommand leaveType)
         {
+            var response = await _mediator.Send(leaveType);
+
+            return CreatedAtAction(nameof(Get), new { id = response }, null);
         }
 
-        // PUT api/<LeaveTypesController>/5
+        // PUT api/<LeaveTypesController>/
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [ProducesResponseType(400)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult> Put(UpdateLeaveTypeCommand leaveType)
         {
+            await _mediator.Send(leaveType);
+
+            return NoContent();
         }
 
         // DELETE api/<LeaveTypesController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult> Delete(int id)
         {
+            var command = new DeleteLeaveTypeCommand { Id = id };
+            await _mediator.Send(command);
+
+            return NoContent();
         }
     }
 }
