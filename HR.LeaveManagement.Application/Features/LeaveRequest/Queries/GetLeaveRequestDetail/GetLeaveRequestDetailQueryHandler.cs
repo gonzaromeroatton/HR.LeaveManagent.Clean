@@ -4,7 +4,7 @@ using MediatR;
 
 namespace HR.LeaveManagement.Application.Features.LeaveRequest.Queries.GetLeaveRequestDetail;
 
-public class GetLeaveRequestDetailQueryHandler : IRequestHandler<GetLeaveRequestDetailsQuery, LeaveRequestDetailsDto>
+public class GetLeaveRequestDetailQueryHandler : IRequestHandler<GetLeaveRequestDetailQuery, LeaveRequestDetailsDto>
 {
     private readonly ILeaveRequestRepository _leaveRequestRepository;
     private readonly IMapper _mapper;
@@ -15,7 +15,7 @@ public class GetLeaveRequestDetailQueryHandler : IRequestHandler<GetLeaveRequest
         this._mapper = mapper;
     }
 
-    public async Task<LeaveRequestDetailsDto> Handle(GetLeaveRequestDetailsQuery request, CancellationToken cancellationToken)
+    public async Task<LeaveRequestDetailsDto> Handle(GetLeaveRequestDetailQuery request, CancellationToken cancellationToken)
     {
         var leaveRequest = this._mapper.Map<LeaveRequestDetailsDto>(await this._leaveRequestRepository.GetLeaveRequestWithDetails(request.Id));
 
