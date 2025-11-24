@@ -308,6 +308,6 @@ Some ideas for extending this example:
 
     Integrate a UI client (SPA or MVC) consuming the API.
 
-License
+# License
 
 This project is licensed under the GPL-3.0 License – see the LICENSE.txt file for details.
