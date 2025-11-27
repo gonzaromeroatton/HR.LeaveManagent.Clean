@@ -52,7 +52,7 @@ public class LeaveRequestController : ControllerBase
     }
 
     [HttpPut]
-    [Route("CancelRequest")]
+    [Route("ChangeLeaveRequest")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(400)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
