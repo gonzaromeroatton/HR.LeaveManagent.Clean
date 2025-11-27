@@ -40,7 +40,7 @@ public class GetLeaveTypeListQueryHandlerTests
     /// items.</remarks>
     /// <returns></returns>
     [Fact]
-    public async Task GetLeaveTypeListTest()
+    public async Task Handle_ReturnsCorrectTypeAndCount_WhenQueryExecuted()
     {
         var handler = new GetLeaveTypesQueryHandler(this._mapper, this._mockRepo.Object, this._mockAppLogger.Object);
 
