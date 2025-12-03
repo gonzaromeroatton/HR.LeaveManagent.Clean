@@ -4,7 +4,6 @@ using HR.LeaveManagement.Application.Models.Identity;
 using HR.LeaveManagement.Identity.Models;
 using Microsoft.AspNetCore.Identity;
 
-//using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -32,6 +31,12 @@ public sealed class AuthService : IAuthService
     /// </summary>
     private readonly JwtSettings _jwtSettings;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="userManager"></param>
+    /// <param name="signInManager"></param>
+    /// <param name="jwtSettings"></param>
     public AuthService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, JwtSettings jwtSettings)
     {
         this._userManager = userManager;
